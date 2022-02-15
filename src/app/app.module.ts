@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { UserviewComponent } from './modules/user/components/userview/userview.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
+    UserviewComponent,
   ],
   imports: [
     BrowserModule,
