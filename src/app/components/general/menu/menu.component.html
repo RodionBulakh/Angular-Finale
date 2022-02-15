@@ -5,9 +5,15 @@
     </svg>
   </div>
   <nav>
-    <a class="nav-link" routerLinkActive="act" routerLink="./games">Games</a>
-    <a class="nav-link" routerLinkActive="act" routerLink="./user/library">Library</a>
-    <a class="nav-link" routerLinkActive="act" routerLink="./user/friends">Friends</a>
-    <a class="nav-link" routerLinkActive="act" routerLink="./user/profile">Profile</a>
+    <div class="left">
+      <a class="nav-link" routerLinkActive="act" routerLink="./user/games">Games</a>
+      <a class="nav-link" routerLinkActive="act" routerLink="./user/library">Library</a>
+      <a class="nav-link" routerLinkActive="act" routerLink="./user/friends">Friends</a>
+      <a class="nav-link" routerLinkActive="act" routerLink="./user/profile">Profile</a>
+    </div>
+    <div class="right">
+      <a class="nav-link nav-logout" (click)="logout()">logout</a>
+    </div>
+
   </nav>
 </header>

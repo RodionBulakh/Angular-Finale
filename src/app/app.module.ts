@@ -10,6 +10,14 @@ import { FriendsComponent } from './modules/user/components/friends/friends.comp
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import {ProfileComponent} from "./modules/user/components/profile/profile.component";
+
+import {ReactiveFormsModule} from "@angular/forms";
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -18,6 +26,7 @@ import { RegisterComponent } from './components/pages/register/register.componen
     GamesComponent,
     LibraryComponent,
     FriendsComponent,
+    ProfileComponent,
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
@@ -25,8 +34,15 @@ import { RegisterComponent } from './components/pages/register/register.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    HotToastModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
