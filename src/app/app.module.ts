@@ -20,12 +20,14 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { UserviewComponent } from './modules/user/components/userview/userview.component';
+import { GameComponent } from './modules/user/components/game/game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     GamesComponent,
+    GameComponent,
     LibraryComponent,
     FriendsComponent,
     ProfileComponent,
