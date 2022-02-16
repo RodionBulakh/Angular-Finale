@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Game } from "../../../../interface/game"
+import { Game } from "@app/interface/game"
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',

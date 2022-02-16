@@ -3,6 +3,7 @@
     "title": "Cyberpunk 2077",
     "id": "1",
     "price": 200,
+    "image": "https://i.pinimg.com/736x/a3/d0/3d/a3d03d251f35fa9b51aaa7a83c96cff7.jpg",
     "genres": [
       "adventure",
       "action"
@@ -12,6 +13,7 @@
     "title": "The Witcher 3: Wild Hunt",
     "id": "2",
     "price": 100,
+    "image": "https://i.pinimg.com/736x/ff/7d/d6/ff7dd6249fd6745653fc37a8d014aa01---face-the-witcher-.jpg",
     "genres": [
       "adventure",
       "action"
@@ -21,6 +23,7 @@
     "title": "Dead Cells",
     "id": "3",
     "price": 50,
+    "image": "https://i.pinimg.com/originals/d0/08/93/d008938059da5e35d813f59a5af1ba90.png",
     "genres": [
       "indie"
     ]
@@ -29,6 +32,7 @@
     "title": "Hades",
     "id": "4",
     "price": 100,
+    "image": "https://i.pinimg.com/736x/b8/3d/ee/b83deeeee01e10a4153c684f8cbeef24.jpg",
     "genres": [
       "indie"
     ]
@@ -37,6 +41,7 @@
     "title": "Hollow Knight",
     "id": "5",
     "price": 100,
+    "image": "https://i.pinimg.com/736x/35/86/9b/35869bd0be3bf4769e98128caf9e70ec.jpg",
     "genres": [
       "indie"
     ]
@@ -45,6 +50,7 @@
     "title": "God of War",
     "id": "6",
     "price": 200,
+    "image": "https://i.pinimg.com/originals/2b/58/9b/2b589b43ba83e08f8c8f43433a9a6471.jpg",
     "genres": [
       "adventure"
     ]
@@ -53,6 +59,7 @@
     "title": "Red Dead Redemption 2",
     "id": "7",
     "price": 200,
+    "image": "https://i.pinimg.com/736x/aa/e1/dd/aae1ddf34fd765c6095276e3a5a3610e.jpg",
     "genres": [
       "adventure"
     ]
@@ -61,6 +68,7 @@
     "title": "Counter-Strike: Global Offensive",
     "id": "8",
     "price": 100,
+    "image": "https://i.pinimg.com/736x/b0/31/77/b03177674df224ea3db510ca86d2e49b.jpg",
     "genres": [
       "action"
     ]
@@ -69,6 +77,7 @@
     "title": "Grand Theft Auto V",
     "id": "9",
     "price": 50,
+    "image": "https://i.pinimg.com/736x/69/03/e9/6903e9f090f5492675568867fde58b0a.jpg",
     "genres": [
       "action"
     ]
@@ -77,6 +86,7 @@
     "title": "Borderlands 3",
     "id": "10",
     "price": 100,
+    "image": "https://i.pinimg.com/736x/79/75/fc/7975fc098ca8c9c70b0468e08f156e74.jpg",
     "genres": [
       "action"
     ]
