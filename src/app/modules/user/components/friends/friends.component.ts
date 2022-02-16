@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
-
+  InputText=''
   constructor() { }
+
+  addText(event: Event) {
+    this.InputText = (<HTMLInputElement>event.target).value;
+  }
 
   ngOnInit(): void {
   }

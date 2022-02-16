@@ -6,6 +6,7 @@ import {LoginComponent} from "./components/pages/login/login.component";
 import {RegisterComponent} from "./components/pages/register/register.component";
 import  { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from "@angular/fire/auth-guard"
 
+
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedIn = () => redirectLoggedInTo(['user/profile']);
 
@@ -30,7 +31,9 @@ const routes: Routes = [
     ...canActivate(redirectToLogin),
     loadChildren: () => import('./modules/user/user.module').then((m) => m.UserModule),
   },
-  {path: '**', component: NotFoundComponent},
+  {path: '**', 
+  component: NotFoundComponent},
+
 ];
 
 @NgModule({
