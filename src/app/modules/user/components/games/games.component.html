@@ -1,1 +1,6 @@
-<p>games works!</p>
+<button (click)="getGames()"> Get values</button>
+<div *ngFor="let game of games | async">
+  <div>
+    {{ game | json}}
+  </div>
+</div>

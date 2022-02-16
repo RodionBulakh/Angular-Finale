@@ -12,6 +12,7 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import {ProfileComponent} from "./modules/user/components/profile/profile.component";
 
+import { HttpClientModule } from '@angular/common/http'
 import {ReactiveFormsModule} from "@angular/forms";
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -37,6 +38,7 @@ import { UserviewComponent } from './modules/user/components/userview/userview.c
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

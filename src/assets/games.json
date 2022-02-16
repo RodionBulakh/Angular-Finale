@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Cyberpunk 2077",
+    "id": "1",
+    "price": 200,
+    "genres": [
+      "adventure",
+      "action"
+    ]
+  },
+  {
+    "title": "The Witcher 3: Wild Hunt",
+    "id": "2",
+    "price": 100,
+    "genres": [
+      "adventure",
+      "action"
+    ]
+  },
+  {
+    "title": "Dead Cells",
+    "id": "3",
+    "price": 50,
+    "genres": [
+      "indie"
+    ]
+  },
+  {
+    "title": "Hades",
+    "id": "4",
+    "price": 100,
+    "genres": [
+      "indie"
+    ]
+  },
+  {
+    "title": "Hollow Knight",
+    "id": "5",
+    "price": 100,
+    "genres": [
+      "indie"
+    ]
+  },
+  {
+    "title": "God of War",
+    "id": "6",
+    "price": 200,
+    "genres": [
+      "adventure"
+    ]
+  },
+  {
+    "title": "Red Dead Redemption 2",
+    "id": "7",
+    "price": 200,
+    "genres": [
+      "adventure"
+    ]
+  },
+  {
+    "title": "Counter-Strike: Global Offensive",
+    "id": "8",
+    "price": 100,
+    "genres": [
+      "action"
+    ]
+  },
+  {
+    "title": "Grand Theft Auto V",
+    "id": "9",
+    "price": 50,
+    "genres": [
+      "action"
+    ]
+  },
+  {
+    "title": "Borderlands 3",
+    "id": "10",
+    "price": 100,
+    "genres": [
+      "action"
+    ]
+  }
+]
+
