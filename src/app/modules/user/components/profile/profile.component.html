@@ -1,4 +1,17 @@
-<ng-container *ngIf="authService.currentUser$ | async as user">
+<h1>Profile</h1>
+<ng-container *ngIf="user$ | async as user">
   <p>Hello {{user.displayName || 'user'}}!</p>
-</ng-container>
+<form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+  <div>
+    <input
+      type="text"
+      formControlName="displayName"
+      placeholder="Display Name"
+    />
+  </div>
 
+  <button type="submit" >
+    Save
+  </button>
+</form>
+</ng-container>
