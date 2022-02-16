@@ -19,6 +19,7 @@ html, body{
   padding: 0;
   height: 100%;
   font-family: $font-family;
+  background-color: $color-bg-pages;
 }
  input {
    display: flex;
@@ -36,4 +37,17 @@ html, body{
   margin: 0 auto;
   padding: 0 2rem;
   overflow: hidden;
+}
+
+
+button{
+  background-color: $color-accent;
+  border: none;
+  border-radius: 4px;
+  color: $color-white;
+  transition: 0.5s ease all;
+}
+
+button:hover{
+  background-color: $color-hover-btn;
 }

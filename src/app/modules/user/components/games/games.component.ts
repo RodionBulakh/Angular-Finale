@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {Game} from "@app/interface/game";
 import {HttpClient} from "@angular/common/http";
-
+import { GameComponent } from '../game/game.component';
 
 @Component({
   selector: 'app-games',
