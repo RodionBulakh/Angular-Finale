@@ -1,18 +1,25 @@
 //COLORS
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300&display=swap');
 $color-accent: #6C69FF;
 $color-warn: #FF6F6F;
 $color-black: #000000;
 $color-product-card: #BDBCFF;
 $color-placeholder: #777777;
 $color-white: #ffffff;
-
+$color-bg-pages: #E5E5E5;
+$color-hover-btn: #5653fa;
+$font-family: 'Roboto', sans-serif;
 //FONT SIZES
 $FS24: 24px;
 $FS20: 20px;
 $FS14: 14px;
 $FS13: 13px;
-
-
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: $font-family;
+}
  input {
    display: flex;
    align-items: center;
