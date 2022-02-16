@@ -1,6 +1,7 @@
 <button (click)="getGames()"> Get values</button>
-<div *ngFor="let game of games | async">
-  <div>
+<div  class="games-container">
+  <app-game [game]="game" *ngFor="let game of games | async"></app-game>
+  <!-- <div>
     {{ game | json}}
-  </div>
+  </div> -->
 </div>
