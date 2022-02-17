@@ -24,7 +24,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { UserviewComponent } from './modules/user/components/userview/userview.component';
 import { GameComponent } from './modules/user/components/game/game.component';
 import { UsersFilerPipe } from './pipes/users-filer.pipe';
-
+import { GamesFilterPipe } from './pipes/games-filter.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { UsersFilerPipe } from './pipes/users-filer.pipe';
     RegisterComponent,
     UserviewComponent,
     UsersFilerPipe,
+    GamesFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { UsersFilerPipe } from './pipes/users-filer.pipe';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     HotToastModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
