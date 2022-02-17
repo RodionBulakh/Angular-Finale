@@ -1,4 +1,4 @@
-import {from, switchMap} from 'rxjs';
+import { from } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {

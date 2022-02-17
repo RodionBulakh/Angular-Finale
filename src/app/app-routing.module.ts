@@ -13,8 +13,7 @@ const redirectLoggedIn = () => redirectLoggedInTo(['user/profile']);
 const routes: Routes = [
   {
     path: 'login',
-    ...canActivate(redirectLoggedIn),
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',
@@ -31,7 +30,7 @@ const routes: Routes = [
     ...canActivate(redirectToLogin),
     loadChildren: () => import('./modules/user/user.module').then((m) => m.UserModule),
   },
-  {path: '**', 
+  {path: '**',
   component: NotFoundComponent},
 
 ];
