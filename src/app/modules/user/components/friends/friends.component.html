@@ -2,24 +2,26 @@
   <div class="form-search">
     <h1>Friends</h1>
     <input class="inputFriends" type="text" (input)="addText($event)" />
-    <button class="searchFriendsBtn" type="submit">Search</button>
+    <button class="searchFriendsBtn" type="submit" (click)="renderAllUsers()">Search</button>
   </div>
-
-  <div class="results">
+  <h2>
+    Search results
+  </h2>
+  <div class="results" *ngFor="let user of usersList">
+    <div *ngIf="user?.displayName?.toLowerCase()?.includes(InputText.toLowerCase())">
     <ul>
-      <h2>
-        Search friends:<span>{{ InputText }}</span>
-      </h2>
       <li>
-        <div class="user"><p>Olga Smith</p></div>
+        <div class="user"><p>{{user.displayName}} - {{user.uid}}</p></div>
         <button class="addFriend">Add Friend</button>
-      </li>
-
-      <li>
-        <div class="user"><p>Olga Smith</p></div>
-
-        <button class="removeFriend">Remove Friend</button>
+       <button class="removeFriend">Remove Friend</button> <!-- (нужно показывать тогда, когда пльзователь добавлен уже)-->
       </li>
     </ul>
+    </div>
+  </div>
+
+  <div >
+
+
+
   </div>
 </div>

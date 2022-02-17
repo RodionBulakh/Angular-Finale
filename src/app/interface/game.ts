@@ -3,5 +3,5 @@ export interface Game {
   id: string;
   price: number;
   genres: object;
-  image: string;
+  image?: string;
 }

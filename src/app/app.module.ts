@@ -18,6 +18,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+
 import { HotToastModule } from '@ngneat/hot-toast';
 import { UserviewComponent } from './modules/user/components/userview/userview.component';
 import { GameComponent } from './modules/user/components/game/game.component';
@@ -42,6 +44,7 @@ import { GameComponent } from './modules/user/components/game/game.component';
     ReactiveFormsModule,
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     HotToastModule.forRoot(),
