@@ -23,6 +23,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { UserviewComponent } from './modules/user/components/userview/userview.component';
 import { GameComponent } from './modules/user/components/game/game.component';
+import { UsersFilerPipe } from './pipes/users-filer.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { GameComponent } from './modules/user/components/game/game.component';
     LoginComponent,
     RegisterComponent,
     UserviewComponent,
+    UsersFilerPipe,
   ],
   imports: [
     BrowserModule,

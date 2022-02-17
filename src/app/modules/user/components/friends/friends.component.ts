@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 // import {Firestore} from "@angular/fire/firestore";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {UserProfile} from "@app/interface/user-profile";
@@ -11,15 +11,15 @@ import {UsersService} from "@app/services/users.service";
 })
 export class FriendsComponent implements OnInit {
 
-  InputText=''
+  filterQuery: string = '';
 
   usersList: UserProfile[] = [];
 
   constructor(private data: UsersService, private db: AngularFirestore) {}
 
-  addText(event: Event) {
-    this.InputText = (<HTMLInputElement>event.target).value;
-  }
+  // getSearchValue(event: Event) {
+  //   this.InputText = (<HTMLInputElement>event.target).value;
+  // }
 
   ngOnInit(): void {
   }
@@ -29,12 +29,11 @@ export class FriendsComponent implements OnInit {
   }
 
 
-  renderAllUsers() {
+  renderAllUsers(searchQuery: string) {
+    this.filterQuery = searchQuery;
     this.getAllUsers().subscribe(res => {
       this.usersList = res.map((user: any) => {
-        const data = user.payload.doc.data();
-        data.id = user.payload.doc.id;
-        return data;
+          return user.payload.doc.data();
       })
     }, err => {
         console.log('Error while fetching users')

@@ -1,25 +1,24 @@
 <div class="container">
   <div class="form-search">
     <h1>Friends</h1>
-    <input class="inputFriends" type="text" (input)="addText($event)" />
-    <button class="searchFriendsBtn" type="submit" (click)="renderAllUsers()">Search</button>
+    <input class="inputFriends" type="text" id="searchQuery" #searchQuery/>
+    <button class="searchFriendsBtn" type="submit" (click)="renderAllUsers(searchQuery.value)">Search</button>
   </div>
   <h2>
     Search results
   </h2>
-  <div class="results" *ngFor="let user of usersList">
-    <div *ngIf="user?.displayName?.toLowerCase()?.includes(InputText.toLowerCase())">
+  <div class="results"  >
+    <div>
     <ul>
-      <li>
-        <div class="user"><p>{{user.displayName}} - {{user.uid}}</p></div>
+      <li *ngFor="let user of usersList | usersFiler:filterQuery">
+        <div class="user"><p>{{user?.displayName}} - {{user?.uid}}</p></div>
         <button class="addFriend">Add Friend</button>
        <button class="removeFriend">Remove Friend</button> <!-- (нужно показывать тогда, когда пльзователь добавлен уже)-->
       </li>
     </ul>
     </div>
   </div>
-
-  <div >
+  <div>
 
 
 
