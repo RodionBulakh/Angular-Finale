@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
 import {Game} from "@app/interface/game";
 import {HttpClient} from "@angular/common/http";
-import { GameComponent } from '../game/game.component';
-import {NgForm} from '@angular/forms';
 
 interface searchGameObj {
   title: string,
@@ -30,7 +27,7 @@ export class GamesComponent implements OnInit {
 
   searchQueryObj: searchGameObj;
   constructor(private http: HttpClient) { }
-  
+
   ngOnInit(): void {
     this.getGames().subscribe( games => {
       this.games = games as Game[];
@@ -40,7 +37,7 @@ export class GamesComponent implements OnInit {
       console.error("Error: unsuccessful fetch games")
     });
 
-    
+
   }
 
   getGames() {
