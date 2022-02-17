@@ -24,8 +24,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { UserviewComponent } from './modules/user/components/userview/userview.component';
 import { GameComponent } from './modules/user/components/game/game.component';
 import { UsersFilerPipe } from './pipes/users-filer.pipe';
-import {getStorage, provideStorage} from "@angular/fire/storage";
-
+import { GamesFilterPipe } from './pipes/games-filter.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +40,7 @@ import {getStorage, provideStorage} from "@angular/fire/storage";
     RegisterComponent,
     UserviewComponent,
     UsersFilerPipe,
+    GamesFilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +50,9 @@ import {getStorage, provideStorage} from "@angular/fire/storage";
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage()),
     provideFirestore(() => getFirestore()),
     HotToastModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
