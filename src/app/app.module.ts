@@ -19,6 +19,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import {getStorage, provideStorage} from "@angular/fire/storage";
+
 
 import { HotToastModule } from '@ngneat/hot-toast';
 import { UserviewComponent } from './modules/user/components/userview/userview.component';
@@ -51,6 +53,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     HotToastModule.forRoot(),
     FormsModule
   ],
