@@ -18,12 +18,12 @@ export class UsersService {
 
         const ref = doc(this.firestore, 'users', user?.uid);
         return docData(ref) as Observable<UserProfile>;
-
       })
     )
   }
 
   constructor(private firestore: Firestore, private auth: AuthService) { }
+
 
   addUser(user: UserProfile) : Observable<any> {
     const ref = doc(this.firestore, 'users', user?.uid);
