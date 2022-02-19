@@ -16,10 +16,10 @@
       </ul>
 
       <button class="card-body-btn card-body-btn__add" *ngIf="!user?.favorites?.includes(game.id)"
-              (click)="addToLibrary(user.uid, game.id, user.favorites)">Add to Library
+              (click)="addToLibrary(user.uid, game.id, user?.favorites)">Add to Library
       </button>
       <button class="card-body-btn card-body-btn__remove" *ngIf="user?.favorites?.includes(game.id)"
-              (click)="removeFromLibrary(user.uid, game.id, user.favorites)">Remove from Library
+              (click)="removeFromLibrary(user.uid, game.id, user?.favorites)">Remove from Library
       </button>
 
     </div>

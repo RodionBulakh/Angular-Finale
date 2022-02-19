@@ -17,8 +17,7 @@ export class GameComponent {
   constructor(private toast: HotToastService, private userService: UsersService) { }
 
 
-  addToLibrary(uid: string, gameId: string, addedGames: any) {
-
+  addToLibrary(uid: string, gameId: string, addedGames: any = []) {
     if([...addedGames].includes(gameId)) {
       alert('Game is already added');
       return;
@@ -39,7 +38,7 @@ export class GameComponent {
       .subscribe();
   }
 
-  removeFromLibrary(uid: string, gameId: string, addedGames: any) {
+  removeFromLibrary(uid: string, gameId: string, addedGames: any = []) {
 
     const filteredGamesLib = [...addedGames].filter(game => game !== gameId)
 
