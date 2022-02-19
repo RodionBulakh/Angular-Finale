@@ -13,6 +13,7 @@ export class GameComponent {
   user$ = this.userService.currentUserProfile$;
 
   @Input() game!: Game;
+  @Input() isAdded!: boolean;
   constructor(private toast: HotToastService, private userService: UsersService) { }
 
 
@@ -22,12 +23,30 @@ export class GameComponent {
       alert('Game is already added');
       return;
     }
-
     const gameData = {
       uid: uid,
       favorites: [gameId, ...addedGames],
     }
+    this.userService
+      .updateUser(gameData)
+      .pipe(
+        this.toast.observe({
+          success: 'Game added successfully',
+          loading: 'Loading...',
+          error: 'There was an error in updating your library',
+        })
+      )
+      .subscribe();
+  }
 
+  removeFromLibrary(uid: string, gameId: string, addedGames: any) {
+
+    const filteredGamesLib = [...addedGames].filter(game => game !== gameId)
+
+    const gameData = {
+      uid: uid,
+      favorites: [...filteredGamesLib],
+    }
     this.userService
       .updateUser(gameData)
       .pipe(

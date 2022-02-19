@@ -1,21 +1,27 @@
-<div class="game-card">
-  <div class="game-card-header" [style.backgroundImage]="'url('+ game.image+ ')'">
+<ng-container *ngIf="user$ | async as user">
+  <div class="game-card">
+    <div class="game-card-header" [style.backgroundImage]="'url('+ game.image+ ')'">
     <span class="game-card-title">
       {{ game.title }}
     </span>
-    <span class="game-card-price">
+      <span class="game-card-price">
       {{ game.price }} UAH
     </span>
-  </div>
-  <div class="game-card-body">
-    <ul>
-      <li *ngFor="let genre of game.genres">
-        {{genre.name}}
-      </li>
-    </ul>
-    <ng-container *ngIf="user$ | async as user">
-      <button class="card-body-btn__add" [disabled]="user?.favorites?.includes(game.id)"(click)="addToLibrary(user.uid, game.id, user.favorites)">Add to Library</button>
-    </ng-container>
+    </div>
+    <div class="game-card-body">
+      <ul>
+        <li *ngFor="let genre of game.genres">
+          {{genre.name}}
+        </li>
+      </ul>
 
+      <button class="card-body-btn card-body-btn__add" *ngIf="!user?.favorites?.includes(game.id)"
+              (click)="addToLibrary(user.uid, game.id, user.favorites)">Add to Library
+      </button>
+      <button class="card-body-btn card-body-btn__remove" *ngIf="user?.favorites?.includes(game.id)"
+              (click)="removeFromLibrary(user.uid, game.id, user.favorites)">Remove from Library
+      </button>
+
+    </div>
   </div>
-</div>
+</ng-container>

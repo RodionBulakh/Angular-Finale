@@ -28,6 +28,7 @@ import { GameComponent } from './modules/user/components/game/game.component';
 import { UsersFilerPipe } from './pipes/users-filer.pipe';
 import { GamesFilterPipe } from './pipes/games-filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { LibraryFilterPipe } from './pipes/library-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     UserviewComponent,
     UsersFilerPipe,
     GamesFilterPipe,
+    LibraryFilterPipe,
   ],
   imports: [
     BrowserModule,

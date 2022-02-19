@@ -1,1 +1,9 @@
-<p>library works!</p>
+<ng-container *ngIf="user$ | async as curUser">
+  <div class="container">
+    <h1 style="text-align: center">{{curUser.displayName}} Library</h1>
+    <div class="games-container">
+      <app-game [game]="game" *ngFor="let game of games | libraryFilter: curUser.favorites"></app-game>
+    </div>
+  </div>
+</ng-container>
+

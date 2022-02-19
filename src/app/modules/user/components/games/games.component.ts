@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Game} from "@app/interface/game";
-import {HttpClient} from "@angular/common/http";
 import {GamesService}  from  "@app/services/games.service"
 import { Genre } from '@app/interface/genre';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
@@ -21,7 +20,7 @@ interface searchGameObj {
 
 
 export class GamesComponent implements OnInit {
-  
+
   filtersGroup: FormGroup;
 
   games: Game[] = [];
@@ -31,7 +30,7 @@ export class GamesComponent implements OnInit {
   filtersOpen = false;
 
   searchQueryObj: searchGameObj;
-  constructor(private gamesService: GamesService, private formBuilder: FormBuilder) { 
+  constructor(private gamesService: GamesService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -47,8 +46,8 @@ export class GamesComponent implements OnInit {
     }, err => {
       console.error("Error: unsuccessful fetch games")
     })
-    
-    
+
+
     this.gamesService.getGenres().subscribe( genres => {
       this.genres = genres;
       this.addCheckBoxesGenres();
