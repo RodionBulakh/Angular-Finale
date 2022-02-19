@@ -35,7 +35,7 @@ export class FriendsComponent {
         });
       },
       (err) => {
-        console.log('Error while fetching users');
+        console.log('Error');
       }
     );
   }
@@ -53,7 +53,7 @@ export class FriendsComponent {
         this.toast.observe({
           success: 'Friend added successfully',
           loading: 'Loading...',
-          error: 'There was an error in updating your friends',
+          error: 'Error',
         })
       )
       .subscribe();
@@ -70,9 +70,9 @@ export class FriendsComponent {
       .updateUser(friendsData)
       .pipe(
         this.toast.observe({
-          success: 'Game removed successfully',
+          success: 'Friend removed successfully',
           loading: 'Loading...',
-          error: 'There was an error in updating your library',
+          error: 'Error',
         })
       )
       .subscribe();
