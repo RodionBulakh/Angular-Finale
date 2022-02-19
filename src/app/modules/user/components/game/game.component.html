@@ -1,6 +1,6 @@
 <ng-container *ngIf="user$ | async as user">
   <div class="game-card">
-    <div class="game-card-header" [style.backgroundImage]="'url('+ game.image+ ')'">
+    <div class="game-card-header" [ngStyle]="{'background-image': (game.image) ? 'url('+ game.image+ ')': ''}">
     <span class="game-card-title">
       {{ game.title }}
     </span>
@@ -9,12 +9,13 @@
     </span>
     </div>
     <div class="game-card-body">
-      <ul>
-        <li *ngFor="let genre of game.genres">
-          {{genre.name}}
-        </li>
-      </ul>
-
+      <div class="game-card-description">
+        <ul>
+          <li *ngFor="let genre of game.genres">
+            {{genre.name}}
+          </li>
+        </ul>
+      </div>
       <button class="card-body-btn card-body-btn__add" *ngIf="!user?.favorites?.includes(game.id)"
               (click)="addToLibrary(user.uid, game.id, user?.favorites)">Add to Library
       </button>
