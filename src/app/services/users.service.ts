@@ -34,4 +34,7 @@ export class UsersService {
     const ref = doc(this.firestore, 'users', user?.uid);
     return from(updateDoc(ref, {...user}));
   }
+
+
+
 }

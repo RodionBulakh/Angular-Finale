@@ -1,29 +1,46 @@
 <div class="container" *ngIf="user$ | async as curUser">
   <div class="form-search">
     <h1>Friends</h1>
-    <input class="inputFriends" type="text" id="searchQuery" #searchQuery/>
-    <button class="searchFriendsBtn" type="submit" (click)="renderAllUsers(searchQuery.value)">Search</button>
+    <input class="inputFriends" type="text" id="searchQuery" #searchQuery />
+    <button
+      class="searchFriendsBtn"
+      type="submit"
+      (click)="renderAllUsers(searchQuery.value)"
+    >
+      Search
+    </button>
   </div>
-  <h2>
-    Search results
-  </h2>
-  <div class="results"  >
+
+  <div class="results">
     <div>
-    <ul>
-      <li *ngFor="let user of usersList | usersFiler:filterQuery">
-        <div *ngIf="curUser.uid !== user.uid" class="info-holder">
-          <img class="avatar" style="width: 50px; height: 50px" [src]="user.photoURL ?? 'assets/images/placeholder.png'"/>
-          <div class="user"><p>{{user?.displayName}} - {{user?.uid}}</p></div>
-          <button class="addFriend">Add Friend</button>
-          <button class="removeFriend">Remove Friend</button> <!-- (нужно показывать тогда, когда пльзователь добавлен уже)-->
-        </div>
-      </li>
-    </ul>
+      <ul>
+        <li *ngFor="let user of usersList | usersFiler: filterQuery">
+          <div *ngIf="curUser.uid !== user.uid" class="info-holder">
+            <img
+              class="avatar"
+              style="width: 50px; height: 50px"
+              [src]="user.photoURL ?? 'assets/images/placeholder.png'"
+            />
+            <div class="user">
+              <p>{{ user?.displayName }} - {{ user?.uid }}</p>
+            </div>
+            <button
+              class="addFriend"
+              *ngIf="!user?.isFriend?.includes(user.uid)"
+              (click)="addToFriend(user.uid, user?.isFriend)"
+            >
+              Add Friend
+            </button>
+            <button
+              class="removeFriend"
+              *ngIf="user?.isFriend?.includes(user.uid)"
+              (click)="removeFromFriends(user.uid, user?.isFriend)"
+            >
+              Remove Friend
+            </button>
+          </div>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div>
-
-
-
   </div>
 </div>

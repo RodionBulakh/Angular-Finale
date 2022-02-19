@@ -16,6 +16,7 @@ import {concatMap} from "rxjs";
 export class ProfileComponent implements OnInit {
 
   user$ = this.userService.currentUserProfile$;
+  // friend: Game[] = [];
 
   constructor(private toast: HotToastService, private userService: UsersService, private avatarUpload: AvatarUploadService) {
   }
@@ -25,7 +26,8 @@ export class ProfileComponent implements OnInit {
       untilDestroyed(this)
     ).subscribe((user) => {
       this.profileForm.patchValue({...user});
-    })
+    });
+
   }
 
   profileForm = new FormGroup({

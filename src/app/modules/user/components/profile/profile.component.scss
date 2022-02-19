@@ -1,8 +1,16 @@
-@import '/src/styles.scss';
+@import "/src/styles.scss";
+
 .profile {
   &__avatar-wrapper {
     position: relative;
     display: flex;
+    
+    .profile__avatar {
+      border: 1px solid #000;
+      object-fit: cover;
+      width: 200px;
+      height: 200px;
+    }
   }
 
   &__avatar {
@@ -13,6 +21,7 @@
   &__details {
     &_name {
       font-size: $FS24;
+      color: $color-accent;
     }
   }
 

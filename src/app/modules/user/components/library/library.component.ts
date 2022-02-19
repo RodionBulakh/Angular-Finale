@@ -13,7 +13,7 @@ export class LibraryComponent implements OnInit {
 
   user$ = this.userService.currentUserProfile$;
 
-  games: Game[] = [];
+  games: Game[] = []; 
 
   constructor(private gamesService: GamesService, private toast: HotToastService, private userService: UsersService) { }
 
