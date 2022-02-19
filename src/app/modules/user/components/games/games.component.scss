@@ -12,6 +12,9 @@
   align-items: center;
 }
 
+.games-wrapper {
+  display: flex;
+}
 .inputGames {
   display: block;
   flex: 1;
@@ -32,4 +35,91 @@
 
 h2{
   font-size: $FS24;
+}
+.filters{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.games-container{
+  flex: 5;
+}
+.form-filters-checkbox{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.filter-checkbox-label{
+  margin-bottom: 20px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-range-value{
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.filter-checkbox-label input{
+  margin-right: 10px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: $color-accent;
+  border-radius: 5px;
+  height: 4px;  
+  width: 150px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -6px;
+  background-color: #fff;
+  height: 16px;
+  width: 16px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+
+
+input[type="checkbox"] {
+  display: inline-block;
+  -webkit-appearance: none;
+  margin: 0;
+  background-color: #fff;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  border: 1px solid $color-accent;
+  &::before{
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-white;
+  }
+  &:checked {
+    &::before{
+      background-color: $color-accent;
+    }
+
+  }
 }

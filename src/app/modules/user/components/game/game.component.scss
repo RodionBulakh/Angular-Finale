@@ -34,9 +34,16 @@
 }
 
 .game-card-body {
+  flex: 1;
   padding: 16px;
   border-radius: 0 0 4px 4px;
   word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card-description{
+  flex: 1;
 }
 
 .card-body-btn {

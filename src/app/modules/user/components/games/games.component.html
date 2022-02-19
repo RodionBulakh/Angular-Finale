@@ -5,22 +5,26 @@
     <input class="inputGames" type="text" placeholder="Search Games" id="searchQuery" #searchTitle/>
     <button class="searchGamesBtn" type="submit" (click)="renderGames(searchTitle.value)">Search</button>
   </div>
-  <button class="filterBtn" (click)="filtersOpen = !filtersOpen">Filters</button>
-  <form *ngIf="filtersOpen" [formGroup]="filtersGroup" >
-    <h3>Price: {{ filtersGroup.value.priceEnd }}</h3>
-    <input type="range" min="0" [max]="maxPrice" step="1" formControlName="priceEnd">
-    <label formArrayName="genres" *ngFor="let genre of genresFormArray.controls; let i = index">
-      <input type="checkbox" [formControlName]="i">
-      {{genres[i].name}}
-    </label>
-  </form>
-  
-  
-  
-  
   <h2>Featured games</h2>
-  <div  class="games-container">
-    <app-game [game]="game" *ngFor="let game of games | gamesFilter: searchQueryObj"></app-game>
+  <div class="games-wrapper">
+    <div  class="games-container">
+      <app-game [game]="game" *ngFor="let game of games | gamesFilter: searchQueryObj"></app-game>
+    </div>
+    <div class="filters">
+      <form *ngIf="filtersOpen" [formGroup]="filtersGroup" >
+        <h3>Filter by price</h3>
+        <input type="range" min="0" [max]="maxPrice" step="1" formControlName="priceEnd">
+        <span class="filter-range-value">{{ filtersGroup.value.priceEnd }} UAH</span>
+        <div class="form-filters-checkbox">
+          <h3>Filter by tag</h3>
+          <label formArrayName="genres" class="filter-checkbox-label" *ngFor="let genre of genresFormArray.controls; let i = index">
+            <input type="checkbox" [formControlName]="i">
+            <span>{{genres[i].name}}</span> 
+          </label>
+        </div>
+      </form>
+      <button class="filterBtn" (click)="filtersOpen = !filtersOpen">{{filtersOpen ? "Close": "Filters"}}</button>
+    </div>
   </div>
 </div>
 

@@ -50,7 +50,7 @@ export class GameComponent {
       .updateUser(gameData)
       .pipe(
         this.toast.observe({
-          success: 'Game added successfully',
+          success: 'Game removed successfully',
           loading: 'Loading...',
           error: 'There was an error in updating your library',
         })

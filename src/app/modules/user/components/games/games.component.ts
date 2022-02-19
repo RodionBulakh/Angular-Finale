@@ -27,7 +27,7 @@ export class GamesComponent implements OnInit {
   genres: Genre[] = [];
   maxPrice: number;
 
-  filtersOpen = false;
+  filtersOpen = true;
 
   searchQueryObj: searchGameObj;
   constructor(private gamesService: GamesService, private formBuilder: FormBuilder) {
