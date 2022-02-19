@@ -13,8 +13,8 @@ export class UsersFilerPipe implements PipeTransform {
    let filteredUsers = [];
 
    for(const user of value) {
-     if (user.displayName?.toLowerCase().includes(filterValue.toLowerCase())) {
-       filteredUsers.push(user)
+     if (user.displayName?.toLowerCase().includes(filterValue.toLowerCase()) && filterValue !== '') {
+       filteredUsers.push(user);
      }
    }
    return filteredUsers;

@@ -51,7 +51,7 @@ ul {
   text-align: start;
 }
 
-li {
+.info-holder {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -59,4 +59,8 @@ li {
   padding: 0.5rem;
   border-radius: 4px;
   box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+}
+
+.avatar {
+  border-radius: 50%;
 }

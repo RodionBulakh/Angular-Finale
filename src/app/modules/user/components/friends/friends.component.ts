@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-// import {Firestore} from "@angular/fire/firestore";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {UserProfile} from "@app/interface/user-profile";
 import {UsersService} from "@app/services/users.service";
@@ -9,16 +8,15 @@ import {UsersService} from "@app/services/users.service";
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })
-export class FriendsComponent implements OnInit {
+export class FriendsComponent {
 
   filterQuery: string = '';
+
+  user$ = this.data.currentUserProfile$;
 
   usersList: UserProfile[] = [];
 
   constructor(private data: UsersService, private db: AngularFirestore) {}
-
-  ngOnInit(): void {
-  }
 
   getAllUsers() {
     return this.db.collection('/users').snapshotChanges();
