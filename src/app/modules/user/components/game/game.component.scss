@@ -46,4 +46,7 @@
   border-radius: 4px;
   color: $color-white;
   background-color: $color-accent;
+  &[disabled] {
+    background-color: #b1b1b1;
+  }
 }

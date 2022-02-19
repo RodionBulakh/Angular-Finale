@@ -17,10 +17,6 @@ export class FriendsComponent implements OnInit {
 
   constructor(private data: UsersService, private db: AngularFirestore) {}
 
-  // getSearchValue(event: Event) {
-  //   this.InputText = (<HTMLInputElement>event.target).value;
-  // }
-
   ngOnInit(): void {
   }
 
@@ -39,13 +35,5 @@ export class FriendsComponent implements OnInit {
         console.log('Error while fetching users')
     })
   }
-
-  // deleteFriend(friend: string) {
-  //   return
-  // }
-  // updateUser(user: UserProfile) {
-  //   this.
-  // }
-
 
 }

@@ -5,7 +5,7 @@ import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {HotToastService} from "@ngneat/hot-toast";
 import {UserProfile} from "@app/interface/user-profile";
 import {AvatarUploadService} from "@app/services/avatar-upload.service";
-import {concatMap, switchMap} from "rxjs";
+import {concatMap} from "rxjs";
 
 @UntilDestroy()
 @Component({
@@ -56,6 +56,7 @@ export class ProfileComponent implements OnInit {
 
   saveProfile() {
     const profileData = this.profileForm.value;
+    console.log(profileData)
     this.userService
       .updateUser(profileData)
       .pipe(

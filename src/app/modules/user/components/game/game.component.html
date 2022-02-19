@@ -13,6 +13,9 @@
         {{genre.name}}
       </li>
     </ul>
-    <button class="card-body-btn__add">Add to Library</button>
+    <ng-container *ngIf="user$ | async as user">
+      <button class="card-body-btn__add" [disabled]="user?.favorites?.includes(game.id)"(click)="addToLibrary(user.uid, game.id, user.favorites)">Add to Library</button>
+    </ng-container>
+
   </div>
 </div>
