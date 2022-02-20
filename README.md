@@ -1,27 +1,20 @@
-# AngularModule
+# Angular Final project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+Deployed app can be found here - https://angular-finale.herokuapp.com/
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+A small project made on the model of the game services.
 
-## Code scaffolding
+## Main Functions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Logging & Registration
+- Search and filter games by genre/price - *Games page*
+- Adding and removing games to\from Library (same as favorites) - *Library page*
+- Searching for friends (note - only searches among registered users):grinning: :smile: (adding and removing) - *Friends page*
+- Profile page with a display of information about the user, as well as an example of changing settings
+- Adding avatars for users
 
-## Build
+### This project was made in order to study the basic functionality of the Angular framework :relaxed:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
