@@ -49,6 +49,7 @@ label, span{
     padding-left: 4px;
 }
 
-span {
-    font-size: 0.7rem;
+.error-text {
+  font-size: 0.7rem;
+  color: $color-warn;
 }

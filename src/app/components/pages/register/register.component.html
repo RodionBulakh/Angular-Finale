@@ -4,25 +4,25 @@
     <div class="form-group">
       <label>Name</label>
       <input type="text" id="name" placeholder="Name" name="name" class="form-input" formControlName="name">
-      <span *ngIf="name?.errors?.['required']">Username is required</span>
+      <span *ngIf="name?.errors?.['required'] && name?.touched" class="error-text">Username is required</span>
     </div>
     <div class="form-group">
       <label>Email</label>
       <input type="email" id="email" placeholder="Email" name="email" class="form-input" formControlName="email">
-      <span *ngIf="email?.errors?.['required']">Email is required</span>
-      <span *ngIf="email?.errors?.['email']">Please enter a correct email format</span>
+      <span *ngIf="email?.errors?.['required'] && email?.touched" class="error-text">Email is required</span>
+      <span *ngIf="email?.errors?.['email'] && email?.touched" class="error-text">Please enter a correct email format</span>
     </div>
     <div class="form-group">
       <label>Password</label>
       <input type="password" id="password" placeholder="Password" name="password" class="form-input" formControlName="password">
-      <span *ngIf="password?.errors?.['required']">Password is required</span>
+      <span *ngIf="password?.errors?.['required'] && password?.touched" class="error-text">Password is required</span>
     </div>
     <div class="form-group">
       <label>Confirm Password</label>
       <input type="password" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword" class="form-input" formControlName="confirmPassword">
-      <span *ngIf="confirmPassword?.errors?.['required']">Confirm Password is required</span>
+      <span *ngIf="confirmPassword?.errors?.['required'] && confirmPassword?.touched" class="error-text">Confirm Password is required</span>
     </div>
-    <span *ngIf="signUpForm?.errors?.['passwordsDontMatch']">Passwords should match</span>
+    <span *ngIf="signUpForm?.errors?.['passwordsDontMatch']" class="error-text error-match">Passwords should match</span>
     <button type="submit" class="lg-btn" value="register" name="register">Register</button>
     <span>Already signed up? <a routerLink="../login">Back to login!</a></span>
   </form>
