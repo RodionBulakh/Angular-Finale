@@ -10,14 +10,12 @@
     "heroku-postbuild": "ng build --prod"
   },
   "private": true,
-  "engines": {
-    "node": "16.13.0",
-    "npm": "8.1.0"
-  },
   "dependencies": {
     "@angular/animations": "~13.2.0",
+    "@angular/cli": "~13.2.3",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
+    "@angular/compiler-cli": "~13.2.0",
     "@angular/core": "~13.2.0",
     "@angular/fire": "^7.2.1",
     "@angular/forms": "~13.2.0",
@@ -31,9 +29,11 @@
     "express": "^4.17.3",
     "firebase": "^9.4.0",
     "ngx-pagination": "^5.1.1",
+    "path": "^0.12.7",
     "rxfire": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "typescript": "~4.5.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -49,5 +49,9 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.5.2"
+  },
+  "engines": {
+    "node": "16.13.0",
+    "npm": "8.1.0"
   }
 }

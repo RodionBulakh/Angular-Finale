@@ -3,12 +3,10 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dist/angular-finale'));
+app.use(express.static('./dist/angular-module'));
 
 app.get('*', (req, res) => {
   res.sendFile('index.html', { root: 'dist/angular-finale/' });
 });
 
-const port = process.env.PORT || 8080;
-
-app.listen(port);
+app.listen(process.env.PORT || 8080);
