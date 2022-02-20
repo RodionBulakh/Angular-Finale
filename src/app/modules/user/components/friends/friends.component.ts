@@ -11,37 +11,43 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class FriendsComponent {
   filterQuery: string = '';
-  isClickedForSearch: boolean = true;
+  isCollapsed: boolean = true;
   user$ = this.data.currentUserProfile$;
   usersList: UserProfile[] = [];
 
+  totalLength: any;
+  page: number = 1;
+  
   constructor(
     private data: UsersService,
     private db: AngularFirestore,
     private toast: HotToastService
-  ) {}
+  ) { }
+
+
 
   getAllUsers() {
     return this.db.collection('/users').snapshotChanges();
   }
 
   renderAllUsers(searchQuery: string) {
-    this.isClickedForSearch = true;
     this.filterQuery = searchQuery;
     this.getAllUsers().subscribe(
       (res) => {
         this.usersList = res.map((user: any) => {
           return user.payload.doc.data();
         });
+        this.totalLength = res.length;
+        // console.log(res.length);
       },
       (err) => {
         console.log('Error');
       }
     );
+    this.isCollapsed = false;
   }
 
   addToFriend(uid: string, myFriends: any = []) {
-    this.isClickedForSearch = false;
     const friendsData = {
       uid: uid,
       isFriend: [uid, ...myFriends],
@@ -51,12 +57,14 @@ export class FriendsComponent {
       .updateUser(friendsData)
       .pipe(
         this.toast.observe({
-          success: 'Friend added successfully',
+          success: 'Friend added successfully!',
           loading: 'Loading...',
           error: 'Error',
         })
       )
       .subscribe();
+
+    console.log(uid);
   }
 
   removeFromFriends(uid: string, myFriends: any = []) {
@@ -70,7 +78,7 @@ export class FriendsComponent {
       .updateUser(friendsData)
       .pipe(
         this.toast.observe({
-          success: 'Friend removed successfully',
+          success: 'Friend removed successfully!',
           loading: 'Loading...',
           error: 'Error',
         })

@@ -6,15 +6,22 @@
       class="searchFriendsBtn"
       type="submit"
       (click)="renderAllUsers(searchQuery.value)"
+      
     >
       Search
     </button>
   </div>
 
-  <div class="results">
+  <div class="results" *ngIf="!isCollapsed">
     <div>
-      <ul>
-        <li *ngFor="let user of usersList | usersFiler: filterQuery">
+      <ul
+        *ngFor="
+          let user of usersList
+            | usersFiler: filterQuery
+            | paginate: { itemsPerPage: 5, currentPage: page }
+        "
+      >
+        <li>
           <div *ngIf="curUser.uid !== user.uid" class="info-holder">
             <img
               class="avatar"
@@ -43,4 +50,10 @@
       </ul>
     </div>
   </div>
+
+  <pagination-controls
+  *ngIf="!isCollapsed"
+    class="pagination"
+    (pageChange)="page = $event"
+  ></pagination-controls>
 </div>

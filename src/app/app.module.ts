@@ -29,6 +29,9 @@ import { UsersFilerPipe } from './pipes/users-filer.pipe';
 import { GamesFilterPipe } from './pipes/games-filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { LibraryFilterPipe } from './pipes/library-filter.pipe';
+
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,7 @@ import { LibraryFilterPipe } from './pipes/library-filter.pipe';
     LibraryFilterPipe,
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -57,7 +61,8 @@ import { LibraryFilterPipe } from './pipes/library-filter.pipe';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     HotToastModule.forRoot(),
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ export class GameComponent {
 
   user$ = this.userService.currentUserProfile$;
 
+
   @Input() game!: Game;
   @Input() isAdded!: boolean;
   constructor(private toast: HotToastService, private userService: UsersService) { }

@@ -26,11 +26,15 @@ export class GamesComponent implements OnInit {
 
   filtersOpen = false;
 
+  totalLength: any;
+  page: number = 1;
+  isCollapsed: boolean = true;
+
   searchQueryObj: searchGameObj;
   constructor(
     private gamesService: GamesService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.filtersGroup = this.formBuilder.group({
@@ -50,6 +54,7 @@ export class GamesComponent implements OnInit {
       (err) => {
         console.error('Error: unsuccessful fetch games');
       }
+
     );
 
     this.gamesService.getGenres().subscribe(
@@ -82,5 +87,6 @@ export class GamesComponent implements OnInit {
       price: { from: 0, to: this.filtersGroup.value.priceEnd },
       genres: searchGenres,
     };
+    this.isCollapsed = false;
   }
 }

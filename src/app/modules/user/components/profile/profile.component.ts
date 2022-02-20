@@ -6,6 +6,7 @@ import {HotToastService} from "@ngneat/hot-toast";
 import {UserProfile} from "@app/interface/user-profile";
 import {AvatarUploadService} from "@app/services/avatar-upload.service";
 import {concatMap} from "rxjs";
+import { Friends } from '@app/interface/friends';
 
 @UntilDestroy()
 @Component({
@@ -16,7 +17,6 @@ import {concatMap} from "rxjs";
 export class ProfileComponent implements OnInit {
 
   user$ = this.userService.currentUserProfile$;
-  // friend: Game[] = [];
 
   constructor(private toast: HotToastService, private userService: UsersService, private avatarUpload: AvatarUploadService) {
   }
@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit {
     ).subscribe((user) => {
       this.profileForm.patchValue({...user});
     });
-
   }
 
   profileForm = new FormGroup({

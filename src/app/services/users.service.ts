@@ -35,6 +35,9 @@ export class UsersService {
     return from(updateDoc(ref, {...user}));
   }
 
-
+  // getUser(user: UserProfile) : Observable<any> {
+  //   const ref = doc(this.firestore, 'users', user?.uid);
+  //   return from(setDoc(ref, {...user}));
+  // }
 
 }
