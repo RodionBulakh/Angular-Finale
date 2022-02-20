@@ -7,8 +7,8 @@ import { Genre } from '@app/interface/genre';
   providedIn: 'root'
 })
 export class GamesService {
-  readonly API_URL_GAMES = 'assets/games.json';
-  readonly API_URL_GENRES = 'assets/genres.json';
+  readonly API_URL_GAMES = 'assets/data/games.json';
+  readonly API_URL_GENRES = 'assets/data/genres.json';
   constructor(private http: HttpClient) { }
 
   getGames(): Observable<Game[]>{
