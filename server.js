@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'dist/angular-finale')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/angular-finale/index.html'));
+  res.sendFile('index.html', { root: 'dist/angular-finale/' });
 });
 
 const port = process.env.PORT || 8080;
