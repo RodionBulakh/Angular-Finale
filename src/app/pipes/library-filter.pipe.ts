@@ -10,11 +10,6 @@ export class LibraryFilterPipe implements PipeTransform {
     let filteredGames = [];
 
       if(Array.isArray(addedGames) && Array.isArray(allGames)) {
-        // filteredGames = allGames.forEach((game) => {
-        //     if (addedGames.includes(game.id)) {
-        //       filteredGames.push(game);
-        //     }
-        //   });
         filteredGames = allGames.reduce(function (newArr, game) {
           if (addedGames.includes(game.id)) {
             newArr.push(game);
