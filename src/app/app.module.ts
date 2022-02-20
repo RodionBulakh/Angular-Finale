@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { LibraryFilterPipe } from './pipes/library-filter.pipe';
 
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FriendsFilterPipe } from './pipes/friends-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     UsersFilerPipe,
     GamesFilterPipe,
     LibraryFilterPipe,
+    FriendsFilterPipe,
   ],
   imports: [
     NgxPaginationModule,

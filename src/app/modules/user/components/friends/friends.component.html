@@ -6,7 +6,7 @@
       class="searchFriendsBtn"
       type="submit"
       (click)="renderAllUsers(searchQuery.value)"
-      
+
     >
       Search
     </button>
@@ -33,15 +33,15 @@
             </div>
             <button
               class="addFriend"
-              *ngIf="!user?.isFriend?.includes(user.uid)"
-              (click)="addToFriend(user.uid, user?.isFriend)"
+              *ngIf="!curUser?.friends?.includes(user?.uid)"
+              (click)="addToFriend(curUser.uid, user?.uid, curUser?.friends)"
             >
               Add Friend
             </button>
             <button
               class="removeFriend"
-              *ngIf="user?.isFriend?.includes(user.uid)"
-              (click)="removeFromFriends(user.uid, user?.isFriend)"
+              *ngIf="curUser?.friends?.includes(user?.uid)"
+              (click)="removeFromFriends(curUser.uid, user?.uid, curUser?.friends)"
             >
               Remove Friend
             </button>

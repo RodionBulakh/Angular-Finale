@@ -1,10 +1,10 @@
 <div class="container profile">
   <h1 class="profile__title">Profile</h1>
-  <ng-container *ngIf="user$ | async as user">
+  <ng-container *ngIf="user$ | async as curUser">
     <div class="profile__avatar-wrapper">
       <img
         class="profile__avatar"
-        [src]="user.photoURL ?? 'assets/images/placeholder.png'"
+        [src]="curUser.photoURL ?? 'assets/images/placeholder.png'"
       />
       <button class="profile__edit-btn" (click)="inputField.click()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -17,15 +17,35 @@
         #inputField
         type="file"
         style="display: none"
-        (change)="uploadFile($event, user)"
+        (change)="uploadFile($event, curUser)"
       />
 
       <div class="profile__details">
-        <p class="profile__details_name">{{ user.displayName || "user" }}!</p>
+        <p class="profile__details_name">{{ curUser.displayName || "user" }}!</p>
         <p class="profile__details_email">
-          You can contact me using this email: <b>{{ user.email || "user" }}</b>
+          You can contact me using this email: <b>{{ curUser.email || "user" }}</b>
         </p>
-        <p>I'm {{ user.age || "hiding my age." }}</p>
+        <p>I'm {{ curUser.age || "hiding my age." }}</p>
+        <ng-container *ngIf="curUser.friends !== null && curUser.friends !== undefined && curUser?.friends?.length !== 0">
+          <div>
+            <h3>Friends List</h3>
+            <ul class="profile__details_friends" >
+              <li *ngFor=" let user of usersList | friendsFilter: curUser.friends ">
+                <img
+                  class="avatar"
+                  style="width: 50px; height: 50px"
+                  [src]="user.photoURL ?? 'assets/images/placeholder.png'"
+                />
+                <div class="user">
+                  {{ user?.displayName }}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="curUser.friends == null || curUser.friends == undefined || curUser?.friends?.length === 0">
+          <h3>You don't have any friends yet</h3>
+        </ng-container>
       </div>
     </div>
   </ng-container>

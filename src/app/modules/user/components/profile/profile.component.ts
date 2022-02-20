@@ -7,6 +7,7 @@ import {UserProfile} from "@app/interface/user-profile";
 import {AvatarUploadService} from "@app/services/avatar-upload.service";
 import {concatMap} from "rxjs";
 import { Friends } from '@app/interface/friends';
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @UntilDestroy()
 @Component({
@@ -17,8 +18,10 @@ import { Friends } from '@app/interface/friends';
 export class ProfileComponent implements OnInit {
 
   user$ = this.userService.currentUserProfile$;
+  usersList: UserProfile[] = [];
+  isCollapsed: boolean = true;
 
-  constructor(private toast: HotToastService, private userService: UsersService, private avatarUpload: AvatarUploadService) {
+  constructor(private toast: HotToastService, private userService: UsersService, private avatarUpload: AvatarUploadService, private db: AngularFirestore) {
   }
 
   ngOnInit(): void {
@@ -27,6 +30,17 @@ export class ProfileComponent implements OnInit {
     ).subscribe((user) => {
       this.profileForm.patchValue({...user});
     });
+
+    this.getAllUsers().subscribe(
+      (res) => {
+        this.usersList = res.map((user: any) => {
+          return user.payload.doc.data();
+        });
+      },
+      (err) => {
+        console.log('Error');
+      }
+    );
   }
 
   profileForm = new FormGroup({
@@ -57,7 +71,7 @@ export class ProfileComponent implements OnInit {
 
   saveProfile() {
     const profileData = this.profileForm.value;
-    console.log(profileData)
+
     this.userService
       .updateUser(profileData)
       .pipe(
@@ -68,5 +82,9 @@ export class ProfileComponent implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  getAllUsers() {
+    return this.db.collection('/users').snapshotChanges();
   }
 }

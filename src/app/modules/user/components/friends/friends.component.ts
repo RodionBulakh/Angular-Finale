@@ -17,7 +17,7 @@ export class FriendsComponent {
 
   totalLength: any;
   page: number = 1;
-  
+
   constructor(
     private data: UsersService,
     private db: AngularFirestore,
@@ -38,7 +38,6 @@ export class FriendsComponent {
           return user.payload.doc.data();
         });
         this.totalLength = res.length;
-        // console.log(res.length);
       },
       (err) => {
         console.log('Error');
@@ -47,10 +46,10 @@ export class FriendsComponent {
     this.isCollapsed = false;
   }
 
-  addToFriend(uid: string, myFriends: any = []) {
+  addToFriend(uid: string, newFriend: string, myFriends: any = []) {
     const friendsData = {
       uid: uid,
-      isFriend: [uid, ...myFriends],
+      friends: [newFriend, ...myFriends],
     };
 
     this.data
@@ -64,15 +63,14 @@ export class FriendsComponent {
       )
       .subscribe();
 
-    console.log(uid);
   }
 
-  removeFromFriends(uid: string, myFriends: any = []) {
-    const alreadyFriends = [...myFriends].filter((friend) => friend !== uid);
+  removeFromFriends(uid: string, newFriend: string, myFriends: any = []) {
+    const alreadyFriends = [...myFriends].filter((friend) => friend !== newFriend);
 
     const friendsData = {
       uid: uid,
-      isFriend: [...alreadyFriends],
+      friends: [...alreadyFriends],
     };
     this.data
       .updateUser(friendsData)

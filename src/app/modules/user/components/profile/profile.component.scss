@@ -4,7 +4,7 @@
   &__avatar-wrapper {
     position: relative;
     display: flex;
-    
+
     .profile__avatar {
       border: 1px solid #000;
       object-fit: cover;
@@ -23,6 +23,29 @@
       font-size: $FS24;
       color: $color-accent;
     }
+    &_friends {
+      display: flex;
+      list-style: none;
+      flex-wrap: nowrap;
+      overflow-y: hidden;
+      overflow-x: auto;
+      padding-left: 0;
+      li {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        img {
+          margin-bottom: 10px;
+          border-radius: 50%;
+        }
+        .user {
+          display: inline-block;
+        }
+      }
+    }
   }
 
   &__edit-btn {
@@ -34,7 +57,6 @@
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
-    bottom: 0;
     left: 20px;
     svg {
       height: 20px;
